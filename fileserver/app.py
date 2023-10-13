@@ -1,5 +1,6 @@
 import os
 from flask import Flask, abort, current_app, render_template, request, redirect, url_for
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 # TODO: study the file size limitations
@@ -15,7 +16,7 @@ def index():
 @app.route('/', methods=['POST'])
 def upload_file():
     uploaded_file = request.files['file']
-    filename = uploaded_file.filename
+    filename = secure_filename(uploaded_file.filename)
     if filename != '':
         file_ext = os.path.splitext(filename)[1]
         if file_ext not in current_app.config['UPLOAD_EXTENSIONS']:
