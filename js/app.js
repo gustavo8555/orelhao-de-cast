@@ -135,7 +135,7 @@ function createDownloadLink(blob) {
 
     var record = document.createElement('a');
     record.href = "#";
-    record.innerHTML = "Record";
+    record.innerHTML = "Upload";
     record.addEventListener("click", function(event) {
         var xhr = new XMLHttpRequest();
         xhr.onload = function(e) {
