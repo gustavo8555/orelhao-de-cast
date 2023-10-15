@@ -31,3 +31,6 @@ def upload_file():
             # TODO: add a file name logic
             uploaded_file.save(uploaded_file.filename)
         return redirect(url_for('index'))
+
+if __name__ == '__main__':
+    app.run(port=8080)
