@@ -147,7 +147,7 @@ function createDownloadLink(blob) {
         fd.append("audio_data", blob, filename);
 
         // Update the URL to point to your Python service's /record endpoint
-        xhr.open("POST", "/record", true);
+        xhr.open("POST", "http://localhost:8080/record", true);
 
         // Send the audio data to the /record endpoint
         xhr.send(fd);
