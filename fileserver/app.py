@@ -13,7 +13,7 @@ app.config['UPLOAD_EXTENSIONS'] = ['.wav']
 def index():
     return render_template('audio_upload.html')
 
-@app.route('/', methods=['POST'])
+@app.route('/record', methods=['POST'])
 def upload_file():
     uploaded_file = request.files['file']
     filename = secure_filename(uploaded_file.filename)
