@@ -121,7 +121,10 @@ function createDownloadLink(blob) {
     var li = document.createElement('li');
     var link = document.createElement('a');
 
-    var filename = new Date().toISOString() + ".wav"; // Include the file extension in the filename
+	// TODO: define a more suitable name convention for file upload
+	//			in the frontend
+    // var filename = new Date().toISOString() + ".wav"; // Include the file extension in the filename
+    var filename = 'Gravacao'+ ".wav"; // Include the file extension in the filename
 
     au.controls = true;
     au.src = url;
@@ -144,10 +147,10 @@ function createDownloadLink(blob) {
             }
         };
         var fd = new FormData();
-        fd.append("audio_data", blob, filename);
+        fd.append("file", blob, filename);
 
         // Update the URL to point to your Python service's /record endpoint
-        xhr.open("POST", "/upload", true);
+        xhr.open("POST", "http://localhost:8080/record", true);
 
         // Send the audio data to the /record endpoint
         xhr.send(fd);
