@@ -1,10 +1,14 @@
-# Simple Recorder.js demo
-A simple HTML5/JS demo that uses [Recorder.js](https://github.com/mattdiamond/Recorderjs) to record audio as wav and pause/resume the recording process. 
+# Orelhão de cast
 
-Update: I've added the ability to upload/POST the file using a plain `XMLHttpRequest`. I've seen many demos using `$.ajax()` but you need jQuery for that.
+Baseado no [Recorder.js](https://github.com/mattdiamond/Recorderjs)
 
-The demo works on both mobile - including Safari 11 - and desktop browsers. I've taken great care to make the demo easy to use on both screens types.
+E nesse demo que encontrei na internet [https://addpipe.com/simple-recorderjs-demo/](https://addpipe.com/simple-recorderjs-demo/)
+## Motivação
+Facilitar o envio de audios dos ouvintes de podcast por ai. 
+De uma forma barata e sem sem muita complicação. 
+Pois é um inferno configurar um canal no telegram e pilotar o discord exige praticamente um curso técnico.
 
-Blog post: [https://addpipe.com/blog/using-recorder-js-to-capture-wav-audio-in-your-html5-web-site/](https://addpipe.com/blog/using-recorder-js-to-capture-wav-audio-in-your-html5-web-site/)
-
-Live demo: [https://addpipe.com/simple-recorderjs-demo/](https://addpipe.com/simple-recorderjs-demo/)
+## Nossa stack
+- HTML e JS
+- Python
+  - Flask
