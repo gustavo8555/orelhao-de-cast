@@ -7,6 +7,8 @@ E nesse demo que encontrei na internet [https://addpipe.com/simple-recorderjs-de
 Facilitar o envio de audios dos ouvintes de podcast por ai. 
 De uma forma barata e sem sem muita complicação. 
 Pois é um inferno configurar um canal no telegram e pilotar o discord exige praticamente um curso técnico.
+# Motivação do nome
+Orelhão (tecnlogia véia) + cast (de podcasts - uma nova forma de comunicação)
 
 ## O que diabos é um orelhão?
 Um orelhão é aquele telefone público antigo que costumava encontrar nas ruas antes dos smartphones dominarem o mundo. Era uma cabine com um telefone onde as pessoas podiam fazer ligações pagando uma ficha ou moedas.
