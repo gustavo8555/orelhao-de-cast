@@ -15,6 +15,13 @@ app.config['UPLOAD_EXTENSIONS'] = ['.wav']
 
 RECORD_FOLDER_NAME = 'records' 
 
+def setup():
+    print("Initializing the file server")
+    checks_record_folder_existence(RECORD_FOLDER_NAME)
+
+def checks_record_folder_existence(folder_name):
+    return False
+
 @app.route('/record', methods=['POST', 'OPTIONS'])
 def upload_file():
     if request.method == 'OPTIONS':
@@ -42,4 +49,5 @@ def append_folder_name(fullpath, server_path=RECORD_FOLDER_NAME):
 
 
 if __name__ == '__main__':
+    setup()
     app.run(debug=True, host='localhost', port=8080)
