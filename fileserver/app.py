@@ -1,5 +1,7 @@
 import os
+from datetime import datetime
 from pathlib import Path
+
 from flask import Flask, abort, current_app, make_response, render_template, request, redirect, url_for
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
@@ -53,9 +55,13 @@ def append_folder_name(fullpath, server_path=RECORD_FOLDER_NAME):
     filename = filename_path_chunks[len(filename_path_chunks)-1]
     base_path = filename_path_chunks[0:len(filename_path_chunks)-1]
     base_path.append(server_path)
-    base_path.append(filename)
+    base_path.append(appends_timestamp('-' + filename))
     return '/'.join(base_path)
 
+def appends_timestamp(filename):
+    timestamp = datetime.now()
+    current_timestamp = timestamp.strftime("%Y-%m-%d %I%M%p")
+    return current_timestamp + filename
 
 if __name__ == '__main__':
     setup()
