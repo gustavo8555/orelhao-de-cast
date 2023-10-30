@@ -5,7 +5,6 @@ from flask_cors import CORS
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
-# CORS(app)
 CORS(app, resources={r"/record/*": {"origins": "*"}})
 
 # TODO: study the file size limitations
@@ -22,7 +21,6 @@ def setup():
     print("Initializing the file server")
     if not checks_record_folder_existence(RECORD_FOLDER_NAME):
         create_records_folder(RECORD_FOLDER_NAME)
-    
 
 def checks_record_folder_existence(folder_name):
     if os.path.exists and os.path.isdir(ACTUAL_APP_PATH + folder_name):
@@ -41,7 +39,6 @@ def upload_file():
         return make_response('Preflight OK', 200, {"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "*"})
     else:
         uploaded_file = request.files['file']
-        # uploaded_file.filename = uploaded_file.
         filename = secure_filename(uploaded_file.filename)
         print('filename: ' + filename)
         if filename != '':
