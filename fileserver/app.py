@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 from flask import Flask, abort, current_app, make_response, render_template, request, redirect, url_for
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
@@ -14,13 +15,25 @@ app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024
 app.config['UPLOAD_EXTENSIONS'] = ['.wav']
 
 RECORD_FOLDER_NAME = 'records' 
+ACTUAL_APP_PATH = str(Path.cwd()) + "\\"
+
 
 def setup():
     print("Initializing the file server")
-    checks_record_folder_existence(RECORD_FOLDER_NAME)
+    if not checks_record_folder_existence(RECORD_FOLDER_NAME):
+        create_records_folder(RECORD_FOLDER_NAME)
+    
 
 def checks_record_folder_existence(folder_name):
-    return False
+    if os.path.exists and os.path.isdir(ACTUAL_APP_PATH + folder_name):
+        return True
+    else:
+        return False
+
+def create_records_folder(folder_name):
+    print(f"Creating folder '{ACTUAL_APP_PATH + folder_name}'")
+    folder = Path(ACTUAL_APP_PATH + folder_name)
+    folder.mkdir(parents=True, exist_ok=True)
 
 @app.route('/record', methods=['POST', 'OPTIONS'])
 def upload_file():
